@@ -17,7 +17,7 @@
         init();
 
         function _getTaskLogs() {
-            if(vm.taskDetail && vm.taskDetail.status === "in progress"){
+            if(vm.taskDetail && vm.taskDetail.status === "processing"){
                 taskStore.getTaskLogs($stateParams.taskId)
                     .then(function(response) {
                         if(typeof vm.taskDetail !== "undefined") {
@@ -39,7 +39,7 @@
         }
 
        function _updateStatus() {
-            if(vm.taskDetail && vm.taskDetail.status === "in progress"){
+            if(vm.taskDetail && vm.taskDetail.status === "processing"){
                 taskStore.getTaskStatus($stateParams.taskId)
                     .then(function(data) {
                         vm.taskDetail.status = data.status;

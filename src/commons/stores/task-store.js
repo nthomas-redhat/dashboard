@@ -40,7 +40,9 @@
             deferred = $q.defer();
             utils.getTaskLogs(jobId)
                 .then(function(data) {
-                    logs = _formatData(data);
+                    if(data) {
+                        logs = _formatData(data);
+                    }
                     deferred.resolve(logs);
                 });
 
